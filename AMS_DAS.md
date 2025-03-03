@@ -43,7 +43,7 @@ rename das_net categoryA_DAS;
 To extract initial allocations of A-Days from DAS2:
 
 ```
-SQL: "select * from das2.allocation where plan='MUL' and category_name='A';"  
+SQL: "select * from nefsc_garfo.das2_allocation where plan='MUL' and category_name='A';"  
 STATA:
 rename plan fmp;
 rename category_name das_type;
