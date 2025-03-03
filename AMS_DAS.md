@@ -5,7 +5,7 @@ Tables:
 
 AMS can be found in the NEFSC_GARFO schema. The relevant tables are prefixed with AMS_.
 DAS can be found in the NEFSC_GARFO schema, the relevant tables are prefixed with DAS_.
-DAS2 have been removed from SOLE and cannot be accessed through the GARFO_NEFSC schema. They can be requested from cold storage.  
+DAS2 can be found in the NEFSC_GARFO schema, the relevant tables are prefixed with DAS2_.
 
 
 # Changes to Collections Methods
@@ -75,7 +75,7 @@ Then, stack them all together.
 To get leases from DAS
 
 ```
-SQL: select * from das.das_transfer_lease where fishery='MUL' and das_category='A' 
+SQL: select * from NEFSC_GARFO.das_transfer_lease where fishery='MUL' and das_category='A' 
   and TRANSACTION_TYPE='L' order by nmfs_approval_date desc;")
 
 Stata:
@@ -100,7 +100,7 @@ To get leases from DAS2
 
 ```    
 SQL:
-select * from das2.allocation_use where category_name='A' and plan='MUL'
+select * from NEFSC_GARFO.DAS2_ALLOCATION_USE where category_name='A' and plan='MUL'
     and allocation_use_type='LEASE' and approval_status='APPROVED' ;
 
 Stata:
@@ -183,7 +183,7 @@ SQL: " select du.das_trip_id, du.allocation_use_type, du.au_date_time_debited, d
 du.permit_credited, du.quantity, du.category_name, du.plan, du.right_id,du.credit_type, 
 du.fishing_year, du.dollar_value, activity_code, dt.permit_num, dt.sailing_port, 
 dt.sailing_state, dt.trip_start, dt.trip_end, dt.landing_port, dt.landing_state
-  from das2.allocation_use du, das2.das_trip dt
+  from nefsc_garfo.das2_allocation_use du, nefsc_garfo.das2_trip dt
      where du.category_name='A' and du.plan='MUL' 
      and du.allocation_use_type='TRIP' 
      and du.quantity<>0 and du.das_trip_id=dt.das_trip_id;"
@@ -205,7 +205,7 @@ SQL: "select du.das_trip_id, du.allocation_use_type, du.au_date_time_debited, du
 du.permit_debited, du.quantity, du.category_name, du.plan, du.right_id, du.credit_type,
 du.fishing_year, activity_code, dt.permit_num, dt.sailing_port, dt.sailing_state, 
 dt.trip_start, dt.trip_end, dt.landing_port, dt.landing_state
- from das2.private_transaction_use du, das2.das_trip dt
+ from nefsc_garfo.das2_private_transaction_use du, nefsc_garfo.das2_trip dt
  where du.category_name='A' and du.plan='MUL'  and du.quantity<>0
  and du.das_trip_id=dt.das_trip_id;"
  
