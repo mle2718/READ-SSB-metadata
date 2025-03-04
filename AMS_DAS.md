@@ -158,7 +158,7 @@ select du.fishing_year, du.das_transaction_id, du.permit_number, du.das_charged_
 tr.sailing_state, tr.sail_date_time as date_sail, tr.landing_port, tr.landing_state, 
 tr.landing_date_time as date_land,tr.gillnet_vessel, tr.day_trip, 
 tr.observer_onboard, tr.das_charged_fixed, tr.fishery_code, 
-tr.vessel_name	from das.das_used du, das.trips tr
+tr.vessel_name	from NEFSC_GARFO.DAS_USED du, NEFSC_GARFO.DAS_TRIP tr
   where du.das_transaction_id=tr.das_transaction_id 
   and du.permit_number=tr.permit_number 
   and du.das_category='A' and du.fishery='MUL';") ;  
