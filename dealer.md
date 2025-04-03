@@ -3,6 +3,7 @@ Dealer database management was transitioned to GARFO in late 2022 and the Center
 
 CFDBS has been moved to NEFSCDB1, but use care
 
+NEFSC has moved CFDBS to the NEFSC_GARFO pipeline in April, 2025. CFDBS data can not be obtained from the NEFSC_GARFO schema.  The old CFDBS schema will be removed on May 7, 2025.
 
 ## Overview
 
@@ -10,7 +11,7 @@ Tables: CFDETSyyyy; CFDERSyyyy; CFLENyyyy, CFAGEyyyy
 
 Location: NEFSCDB1
 
-Schema: CFDBS
+Schema: NEFSC_GARFO
 
 The dealer data are transaction-level reports at the level of the market-category.  These data are primarily generated through mandatory reporting by federally-permitted fish dealers.  The federal reporting is supplemented with data from non-federally-permitted (state-only) fish dealers.  Data are currently reported electronically in partnership with ACCSP through SAFIS.
 
