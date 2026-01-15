@@ -49,6 +49,8 @@ select * from NEFSC_GARFO.PERMIT_VPS_VESSEL where (date_issued<>date_canceled or
 
 * The owners/shareholders of Company A  are entered in the Client system and given a person_id.  Each person in the system has a unique id that can be reused for any of the businesses that they may be a part of.  For new companies or changes in corporate owners, we then assign each person to the company.  Each year with our renewal applications, we collect the owner information and compare it to what we have in the system.  If there are no changes in owners, we don't alter any of the business information.  If a person is added to a company, we generate a person_id for them, if they don't already have one, and assign them to the business.  If a person leaves a company or dies, we don't delete them from the business.  We place an end_date on their relation with the company so that we can have a history of the owners.    (Ted Hawes - Sept 23, 2020)
 
+* NMFS collects a single address from dealers. This is stored in ``NEFSC_GARFO.PERMIT_DEALER``.  A dealer may have multiple physical locations and the dealer address in ``NEFSC_GARFO.PERMIT_DEALER`` may be the actual location where fish transactions are taking place, a business address, or a mailing address.
+
 # Sample Code
 
  ## A breakdown of the ownership code
