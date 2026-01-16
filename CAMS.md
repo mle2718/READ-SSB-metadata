@@ -41,9 +41,12 @@ See the [README](https://github.com/NEFSC/READ-SSB-Lee-metadata/) for a note abo
 
 # General Caveats.
 
+* The CAMSID is not guaranteed to be consistent across CAMS model runs.
+	* If none of the data change the same trip will will get the same CAMSID.
+    * When data change there can be a new CAMSID for the same "trip". Sometimes one CAMSID can become two or two can be combined into a single trip if the new data indicate that separate info from dealer, VTR, VMS, observer indicate that it was really a single trip or multiple trips. So lots of ways things can change with the changing data.
+ 	
 * CAMS is is updated on Sunday at 4-5pm and on Wednesday at 8-9 pm.
-* 
-The CAMS process still uses a truncate-and-fill approach with the tables. Unfortunately, that means the tables are empty for a period of time during each update. So, either, don't pull data at this time. Or check to make sure you have the expected results. Leave some slack on the back end, as tables are re-indexed after the insert.
+* The CAMS process still uses a truncate-and-fill approach with the tables. Unfortunately, that means the tables are empty for a period of time during each update. So, either, don't pull data at this time. Or check to make sure you have the expected results. Leave some slack on the back end, as tables are re-indexed after the insert.
 
 
 * CAMS currently fills in VALUE=NULL with a zero. This might be a problem if you are calculating average prices by summing the landings and value for all rows.  
