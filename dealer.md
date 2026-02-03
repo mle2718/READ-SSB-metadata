@@ -107,7 +107,10 @@ This bit of code may help:```select * from cfdbs.cfspp order by doc desc;```
     + Used for Catch Accounting
     + More-or-less static
     + A guideline: use the AA tables if you need consistency with stock assessment or other products that also use them.
-
+ 
+* Landings revenue information in CAMS (as of 2-3-2026) is imperfect given GARFO workflows and missing values.
+    + Landings information in CAMS is received by GARFO from ACCSP via SAFIS and separately from states not utilizing SAFIS. GARFO currently pipes in data from ACCSP's 'consolidated data layers' (prioritizing data timeliness), thus missing corrections made by states not submitting data through SAFIS. Corrected and final data is stored by ACCSP in a data layer called MVLANDINGS. A table received from GARFO (who has access to MVLANDINGS) that includes average landings prices (by species by year by month) derived from ACCSP (MVLANDINGS table) can be used as an imperfect solution to this problem. This table is stored in ORACLE as - NEFSC_GARFO.CFDERS_AVG_PRICE_TST.
+    + For CEVRI and Port Activity Indicators (in 2026) this table was used to impute data for all CAMS_LAND records from state permitted vessels (i.e., they don't possess any federal permits) AND all missing values. The column in CAMS - PERMIT_STATE_FED - has two                 levels to roughly differentiate between SAFIS and state reported landings; 'state' means that the vessel only had a state permit and 'federal' means that vessel had a federal permit, but they could also have a state permit. 
 # Sample Code
 
 * The length distribution of landed fish might be useful. This code extracts the length distribution for cod in 2010:
